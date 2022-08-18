@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta name="Autor" content="Konstantin Petrov">
+  <title>Mesto</title>
+  <link rel="icon" href="./images/icons/favicon.ico">
+  <link rel="stylesheet" href="./blocks/style.css">
+</head>
+<body class="page">
+  <header class="header">
+    <img src="./images/icons/logo-white.svg" alt="логотип" class="header__logo">
+  </header>
+  <main>
+    <section class="profile">
+      <img src="./images/avatar.jpg" alt="фотография профиля" class="profile__avatar">
+      <div class="profile__info">
+        <div class="profile__name-box">
+          <p class="profile__name">Сэнди Чикс</p>
+          <button class="profile__edit-btn"></button>
+        </div>
+        <p class="profile__job">Белка из Техаса</p>
+      </div>
+      <button class="profile__add-btn"></button>
+    </section>
+    <section class="elements">
+      <ul class="elements__list">
+        <li class="elements__item">
+          <img src="./images/bikini-bottom.jpg" alt="Бикини Боттом" class="elements__img">
+          <div class="elements__container">
+            <h2 class="elements__title">Бикини Боттом</h2>
+            <button class="elements__like-btn"></button>
+          </div>
+        </li>
+        <li class="elements__item">
+          <img src="./images/crabs.jpg" alt="Красти Краб" class="elements__img">
+          <div class="elements__container">
+            <h2 class="elements__title">Красти Краб</h2>
+            <button class="elements__like-btn"></button>
+          </div>
+        </li>
+        <li class="elements__item">
+          <img src="./images/nk.jpg" alt="Нью-Келп" class="elements__img">
+          <div class="elements__container">
+            <h2 class="elements__title">Нью-Келп</h2>
+            <button class="elements__like-btn"></button>
+          </div>
+        </li>
+        <li class="elements__item">
+          <img src="./images/dead-eye-gulch.jpg" alt="Дэд Ай Галч" class="elements__img">
+          <div class="elements__container">
+            <h2 class="elements__title">Дэд Ай Галч</h2>
+            <button class="elements__like-btn"></button>
+          </div>
+        </li>
+        <li class="elements__item">
+          <img src="./images/home.jpg" alt="Конч Стрит, 124" class="elements__img">
+          <div class="elements__container">
+            <h2 class="elements__title">Конч Стрит, 124</h2>
+            <button class="elements__like-btn"></button>
+          </div>
+        </li>
+        <li class="elements__item">
+          <img src="./images/squidville.jpg" alt="Сквидград" class="elements__img">
+          <div class="elements__container">
+            <h2 class="elements__title">Сквидград</h2>
+            <button class="elements__like-btn"></button>
+          </div>
+        </li>
+      </ul>
+    </section>
+  </main>
+  <footer class="footer">
+    <p class="footer__copyright">&copy; 2022 Mesto Bikini Bottom</p>
+  </footer>
+  <section class="popup">
+    <form class="popup__form">
+      <button class="popup__close" type="button"></button>
+      <h2 class="popup__title">Редактировать профиль</h2>
+      <input class="popup__input popup__input_name" type="text">
+      <input class="popup__input popup__input_job" type="text">
+      <button class="popup__btn" type="submit">Сохранить</button>
+    </form>
+  </section>
+  <script src="./script.js"></script>
+</body>
+</html>

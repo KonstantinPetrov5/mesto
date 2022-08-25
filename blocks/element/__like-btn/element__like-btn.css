@@ -1,4 +1,5 @@
-.elements__like-btn {
+.element__like-btn {
+  padding: 0;
   height: 19px;
   min-width: 22px;
   margin-left: 15px;
@@ -12,7 +13,6 @@
   transition: all .2s ease;
 }
 
-.elements__like-btn:hover {
+.element__like-btn:hover {
   opacity: .5;
-  transition: all .2s ease;
 }

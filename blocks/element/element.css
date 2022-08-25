@@ -1,0 +1,12 @@
+.element {
+  list-style: none;
+  background-color: #fff;
+  border-radius: 10px;
+  max-width: 352px;
+}
+
+@media screen and (max-width: 767px) {
+  .element {
+    max-width: none;
+  }
+}

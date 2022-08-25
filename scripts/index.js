@@ -5,34 +5,31 @@ const closePopup = popup.querySelector('.popup__close');
 const popupBtn = popup.querySelector('.popup__btn');
 let profileName = page.querySelector('.profile__name');
 let profileJob = page.querySelector('.profile__job');
-let popupName = popup.querySelector('.popup__input_name');
-let popupJob = popup.querySelector('.popup__input_job');
+let popupName = popup.querySelector('.popup__input_form_name');
+let popupJob = popup.querySelector('.popup__input_form_job');
 let popupForm = popup.querySelector('.popup__form');
 
-function popupToggle() {
-  popup.classList.toggle('popup_active');
-  page.classList.toggle('page_lock');
+function popupOpen() {
   popupName.value = profileName.textContent;
   popupJob.value = profileJob.textContent;
+  popup.classList.add('popup_active');
 };
 
-editBtn.addEventListener('click', popupToggle);
-closePopup.addEventListener('click', popupToggle);
+function popupClose() {
+  popup.classList.remove('popup_active');
+};
 
-popup.addEventListener('click', function(event) {
-   if (event.target === event.currentTarget) {
-    popupToggle();
-   } else {
-    return;
-   }
-});
+
+editBtn.addEventListener('click', popupOpen);
+closePopup.addEventListener('click', popupClose);
+
 
 function formSubmitHandler (evt) {
   evt.preventDefault();
   if (popupName.value.length && popupJob.value.length > 0) {
     profileName.textContent = popupName.value;
     profileJob.textContent = popupJob.value;
-    popupToggle()
+    popupClose()
   } else {
     alert('Поля ввода не могут быть пусты');
   }

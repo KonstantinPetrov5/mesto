@@ -1,6 +1,10 @@
-.elements__img {
+.element__img {
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
+  height: 100%;
   object-fit: cover;
 }

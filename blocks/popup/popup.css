@@ -2,9 +2,13 @@
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 5;
   height: 100vh;
   width: 100%;
-  display: none;
+  display: flex;
+  visibility: hidden;
+  opacity: 0;
+  transition: all .5s ease;
   justify-content: center;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.5);

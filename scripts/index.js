@@ -1,4 +1,4 @@
-const popup = document.querySelectorAll('.popup');
+const popups = document.querySelectorAll('.popup');
 const editBtn = document.querySelector('.profile__edit-btn');
 const addBtn = document.querySelector('.profile__add-btn');
 const popupProfile = document.querySelector('.popup_type_profile');
@@ -50,61 +50,67 @@ function addCard(newCard) {
 initialCards.forEach(card => addCard(createCard(card)));
 
 
+formProfile.addEventListener('submit', handleProfileFormSubmit);
 
-formProfile.addEventListener('submit', profileSubmitHandler);
-
-function cardSubmitHandler(evt) {
+function handleCardFormSubmit(evt) {
   evt.preventDefault();
+  const submitBtn = evt.target.querySelector('.popup__btn')
   const templateCard = {
     name: inputDescription.value,
     link: inputImg.value
   };
+
   addCard(createCard(templateCard));
   closePopup(popupCard);
   formCard.reset();
+  submitBtn.classList.add('popup__btn_disabled');
+  submitBtn.setAttribute('disabled', 'disabled')
 }
 
-formCard.addEventListener('submit', cardSubmitHandler);
+formCard.addEventListener('submit', handleCardFormSubmit);
 
 //-----------------------------------------------------------------------------------------------------------------------------
 
 function openPopup(popup) {
-  if (popup === popupProfile) {
-    inputName.value = profileName.textContent;
-    inputJob.value = profileJob.textContent;
-  }
   popup.classList.add('popup_active');
+  document.addEventListener('keydown', closeByEscape);
 }
 
 function closePopup(popup) {
   popup.classList.remove('popup_active');
-  popup.querySelector('form').reset()
+  document.removeEventListener('keydown', closeByEscape);
+  popup.querySelector('form').reset(); // Эта строчка отностится ко всем попапам. Она очищает форму внутри.
 }
 
 
-editBtn.addEventListener('click', () => openPopup(popupProfile));
+editBtn.addEventListener('click', () => {
+  inputName.value = profileName.textContent;
+  inputJob.value = profileJob.textContent;
+  openPopup(popupProfile)
+});
 addBtn.addEventListener('click', () => openPopup(popupCard));
 
-popup.forEach(e => {
-  e.addEventListener('click', e => {
+popups.forEach(e => {
+  e.addEventListener('mousedown', e => {
     if (e.target.className === 'popup__close' || e.target === e.currentTarget) {
       closePopup(e.currentTarget)
     }
   })
 });
 
-document.addEventListener('keydown', ev => {
-  if (ev.key === 'Escape') {popup.forEach(e => closePopup(e))}
-})
+function closeByEscape(evt) {
+  if (evt.key === 'Escape') {
+    const openedPopup = document.querySelector('.popup_active')
+    closePopup(openedPopup)
+  }
+}
 
 //-----------------------------------------------------------------------------------------------------------------------------
 
-function profileSubmitHandler(evt) {
+function handleProfileFormSubmit(evt) {
   evt.preventDefault();
   profileName.textContent = inputName.value;
   profileJob.textContent = inputJob.value;
   closePopup(popupProfile)
 }
-
-console.log(document.forms)
 

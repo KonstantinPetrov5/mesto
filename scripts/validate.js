@@ -22,8 +22,10 @@ const hideInputError = (formElement, inputElement, objList) => {
 const toggleButtonState = (inputList, buttonElement, objList) => {
   if (hasInvalidInput(inputList)) {
     buttonElement.classList.add(objList.inactiveButtonClass);
+    buttonElement.setAttribute('disabled', 'disabled');
   } else {
     buttonElement.classList.remove(objList.inactiveButtonClass);
+    buttonElement.removeAttribute('disabled');
   }
 };
 

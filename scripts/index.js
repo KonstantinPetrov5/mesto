@@ -54,7 +54,7 @@ formProfile.addEventListener('submit', handleProfileFormSubmit);
 
 function handleCardFormSubmit(evt) {
   evt.preventDefault();
-  const submitBtn = evt.target.querySelector('.popup__btn')
+  const submitBtn = evt.submitter
   const templateCard = {
     name: inputDescription.value,
     link: inputImg.value
@@ -79,7 +79,6 @@ function openPopup(popup) {
 function closePopup(popup) {
   popup.classList.remove('popup_active');
   document.removeEventListener('keydown', closeByEscape);
-  popup.querySelector('form').reset(); // Эта строчка отностится ко всем попапам. Она очищает форму внутри.
 }
 
 
